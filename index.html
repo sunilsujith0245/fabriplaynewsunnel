@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailoring Boutique Masterclass</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #FFFFFF; --off-white: #FAFAFA; --light-grey: #F3F3F3;
+  --soft-grey: #E5E5E5; --border-grey: #979797; --black: #000000;
+  --charcoal: #1A1A1A; --dark-text: #111111; --body-text: #2D2D2D;
+  --muted: #4A4A4A; --primary-purple: #7F00FF; --light-purple: #B266FF;
+  --purple-hover: #5E00CC; --deep-purple: #3D0080;
+  --yellow-accent: #FFD600; --yellow-dark: #D4B200;
+  --purple-bg: rgba(127,0,255,0.05); --purple-bg2: rgba(127,0,255,0.08);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;width:100%}
+body{font-family:'Inter',sans-serif;color:var(--dark-text);background:var(--white);overflow-x:hidden;width:100%;position:relative;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-0.01em}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+.container{max-width:1200px;margin:0 auto;padding:0 28px;width:100%}
+.section-tag{display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--primary-purple);background:var(--purple-bg2);padding:6px 14px;border-radius:100px;margin-bottom:14px;text-transform:uppercase;letter-spacing:1.2px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.8vw,42px);font-weight:700;color:var(--dark-text);line-height:1.15;margin-bottom:10px;letter-spacing:-0.02em}
+.section-sub{font-family:'Inter',sans-serif;font-size:16px;color:var(--body-text);line-height:1.65;margin-bottom:28px;max-width:580px;font-weight:400}
+
+.cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;padding:15px 30px;border:none;border-radius:8px;cursor:pointer;position:relative;transition:all .25s ease;letter-spacing:-0.01em}
+.cta-btn--purple{background:var(--primary-purple);color:var(--white);box-shadow:0 4px 20px rgba(127,0,255,.3);animation:glow-p 2.5s infinite}
+.cta-btn--purple:hover{background:var(--purple-hover);transform:translateY(-2px);box-shadow:0 8px 30px rgba(127,0,255,.4)}
+@keyframes glow-p{0%,100%{box-shadow:0 4px 20px rgba(127,0,255,.3)}50%{box-shadow:0 4px 32px rgba(127,0,255,.5)}}
+.cta-btn--yellow{background:var(--yellow-accent);color:var(--black);box-shadow:0 4px 20px rgba(255,214,0,.35);animation:glow-y 2.5s infinite}
+.cta-btn--yellow:hover{background:var(--yellow-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,214,0,.45)}
+@keyframes glow-y{0%,100%{box-shadow:0 4px 20px rgba(255,214,0,.35)}50%{box-shadow:0 4px 32px rgba(255,214,0,.55)}}
+.cta-btn .arrow{display:inline-block;transition:transform .25s}
+.cta-btn:hover .arrow{transform:translateX(4px)}
+.cta-group{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cta-note{font-size:12px;color:var(--muted);margin-top:8px;font-weight:500}
+.cta-note b{color:var(--primary-purple)}
+.cta-note--light{color:rgba(255,255,255,.5)}
+.cta-note--light b{color:var(--yellow-accent)}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+.rv.v{opacity:1;transform:translateY(0)}
+.rv-l{opacity:0;transform:translateX(-35px);transition:opacity .55s ease,transform .55s ease}
+.rv-l.v{opacity:1;transform:translateX(0)}
+.rv-r{opacity:0;transform:translateX(35px);transition:opacity .55s ease,transform .55s ease}
+.rv-r.v{opacity:1;transform:translateX(0)}
+
+/* =========================================================
+   HERO SECTION — CLEAN RESPONSIVE SYSTEM
+   ========================================================= */
+
+.hero{
+  --hero-purple:#7F00FF;
+  --hero-purple-light:#B266FF;
+  --hero-purple-deep:#3D0080;
+  --hero-yellow:#FFD600;
+  --hero-white:#FFFFFF;
+  --hero-muted:#CFC8D8;
+
+  position:relative;
+  width:100%;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  isolation:isolate;
+
+  background:
+    radial-gradient(circle at 78% 46%,rgba(127,0,255,.18) 0%,rgba(127,0,255,.07) 24%,transparent 52%),
+    linear-gradient(135deg,#080012 0%,#10001F 48%,#18002F 100%);
+
+  color:var(--hero-white);
+}
+
+/* ---------------------------
+   Background decoration
+   --------------------------- */
+
+.hero-glow{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:-2;
+}
+
+.hero-glow-1{
+  width:520px;
+  height:520px;
+  right:-190px;
+  top:-210px;
+  background:radial-gradient(circle,rgba(127,0,255,.24),transparent 70%);
+  filter:blur(6px);
+}
+
+.hero-glow-2{
+  width:420px;
+  height:420px;
+  left:-260px;
+  bottom:-250px;
+  background:radial-gradient(circle,rgba(61,0,128,.36),transparent 70%);
+  filter:blur(6px);
+}
+
+.hero-dot{
+  position:absolute;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--hero-purple);
+  opacity:.34;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.hero-dot-1{top:16%;left:4%}
+.hero-dot-2{top:51%;right:6%;width:4px;height:4px}
+.hero-dot-3{bottom:14%;right:27%;width:6px;height:6px}
+
+/* ---------------------------
+   Main layout
+   --------------------------- */
+
+.hero-container{
+  position:relative;
+  z-index:5;
+  width:min(1280px,92%);
+  min-height:100svh;
+  margin:0 auto;
+  padding:clamp(52px,6vw,82px) 0;
+
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+  column-gap:56px;
+  align-items:center;
+}
+
+/* ---------------------------
+   Left content
+   --------------------------- */
+
+.hero-content{
+  width:100%;
+  max-width:660px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+}
+
+.hero-eyebrow{
+  display:inline-flex;
+  align-self:flex-start;
+  width:max-content;
+  max-width:100%;
+  margin-bottom:22px;
+  padding:9px 15px;
+
+  border:1px solid rgba(255,214,0,.32);
+  border-radius:999px;
+  background:rgba(255,214,0,.06);
+
+  color:var(--hero-yellow);
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.35;
+  letter-spacing:.05px;
+  text-align:left;
+}
+
+.hero-title{
+  width:100%;
+  max-width:660px;
+  margin:0;
+  padding:0;
+
+  font-family:'Playfair Display',serif;
+  font-size:clamp(42px,3.55vw,54px);
+  font-weight:700;
+  line-height:1.055;
+  letter-spacing:-1.7px;
+  text-align:left;
+}
+
+.hero-title > span{
+  display:block;
+}
+
+.hero-title .hero-highlight{
+  margin-top:3px;
+  color:var(--hero-yellow);
+}
+
+.hero-subtitle{
+  max-width:620px;
+  margin-top:20px;
+  color:var(--hero-purple-light);
+  font-family:'Inter',sans-serif;
+  font-size:20px;
+  font-weight:600;
+  font-style:italic;
+  line-height:1.35;
+  text-align:left;
+}
+
+.hero-description{
+  max-width:590px;
+  margin:15px 0 0;
+  color:rgba(255,255,255,.74);
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  font-weight:400;
+  line-height:1.65;
+  text-align:left;
+}
+
+.hero-details{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px 19px;
+  max-width:640px;
+  margin-top:23px;
+}
+
+.hero-detail{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  white-space:nowrap;
+  color:rgba(255,255,255,.67);
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  font-weight:500;
+  line-height:1.35;
+}
+
+.detail-icon{
+  font-size:13px;
+  line-height:1;
+}
+
+.hero-action{
+  width:max-content;
+  max-width:100%;
+  margin-top:22px;
+  text-align:left;
+}
+
+.hero-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  min-height:58px;
+  padding:0 27px;
+
+  border-radius:10px;
+  background:var(--hero-yellow);
+  color:#111;
+  box-shadow:0 10px 34px rgba(255,214,0,.18);
+
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  font-weight:800;
+  line-height:1;
+  text-decoration:none;
+
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+}
+
+.hero-button:hover{
+  transform:translateY(-2px);
+  background:#FFE13B;
+  box-shadow:0 14px 40px rgba(255,214,0,.28);
+}
+
+.hero-button > span{
+  font-size:19px;
+  line-height:1;
+}
+
+.hero-proof{
+  margin-top:9px;
+  color:rgba(255,255,255,.50);
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  line-height:1.4;
+}
+
+.hero-proof strong{color:var(--hero-yellow)}
+.hero-proof > span{margin:0 3px}
+
+/* ---------------------------
+   Right visual
+   --------------------------- */
+
+.hero-visual{
+  position:relative;
+  width:100%;
+  min-width:0;
+  height:clamp(560px,46vw,670px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  align-self:center;
+}
+
+.hero-circle{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+
+  width:min(560px,43vw);
+  height:min(560px,43vw);
+  min-width:470px;
+  min-height:470px;
+
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 38% 28%,#A64DFF 0%,#8A1BFF 31%,#7F00FF 57%,#4C00A0 100%);
+  box-shadow:
+    0 0 90px rgba(127,0,255,.22),
+    inset 0 0 70px rgba(255,255,255,.05);
+}
+
+.hero-circle-glow{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(178,102,255,.23),transparent 69%);
+  filter:blur(20px);
+  pointer-events:none;
+}
+
+.hero-orbit{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) rotate(-24deg);
+  width:min(660px,51vw);
+  height:min(660px,51vw);
+  min-width:540px;
+  min-height:540px;
+  border-radius:50%;
+  border:2px solid transparent;
+  border-top-color:var(--hero-yellow);
+  border-right-color:rgba(255,214,0,.32);
+  pointer-events:none;
+}
+
+.hero-orbit-dot{
+  position:absolute;
+  left:14%;
+  top:23%;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:var(--hero-yellow);
+  box-shadow:0 0 20px rgba(255,214,0,.40);
+}
+
+.founder-wrap{
+  position:absolute;
+  z-index:10;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+
+  width:min(570px,43vw);
+  min-width:430px;
+
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.founder-image{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:640px;
+  object-fit:contain;
+  object-position:center bottom;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+}
+
+.visual-dot{
+  position:absolute;
+  z-index:15;
+  border-radius:50%;
+}
+
+.visual-dot-1{width:9px;height:9px;background:var(--hero-purple-light);right:7%;top:18%}
+.visual-dot-2{width:8px;height:8px;background:var(--hero-purple);left:8%;bottom:29%}
+.visual-dot-3{width:5px;height:5px;background:var(--hero-yellow);right:15%;bottom:18%}
+
+/* ---------------------------
+   Desktop/tablet tuning
+   --------------------------- */
+
+@media (max-width:1100px) and (min-width:801px){
+  .hero-container{
+    width:min(1120px,94%);
+    grid-template-columns:minmax(0,1fr) minmax(420px,.95fr);
+    column-gap:32px;
+  }
+
+  .hero-title{
+    font-size:clamp(38px,4.2vw,48px);
+  }
+
+  .hero-visual{
+    height:560px;
+  }
+
+  .hero-circle{
+    width:440px;
+    height:440px;
+    min-width:440px;
+    min-height:440px;
+  }
+
+  .hero-orbit{
+    width:520px;
+    height:520px;
+    min-width:520px;
+    min-height:520px;
+  }
+
+  .founder-wrap{
+    width:450px;
+    min-width:0;
+  }
+}
+
+/* ---------------------------
+   MOBILE — order is:
+   eyebrow → headline → subtitle → description
+   → image → date → CTA
+   --------------------------- */
+
+@media (max-width:800px){
+  .hero{
+    min-height:auto;
+    padding:34px 0 32px;
+  }
+
+  .hero-container{
+    width:min(94%,560px);
+    min-height:auto;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+    text-align:center;
+  }
+
+  /* Flatten the wrapper so its children can be ordered around the image. */
+  .hero-content{
+    display:contents;
+  }
+
+  .hero-eyebrow{
+    order:1;
+    align-self:center;
+    width:auto;
+    max-width:94%;
+    margin-bottom:20px;
+    padding:8px 13px;
+    font-size:10.5px;
+    line-height:1.4;
+    text-align:center;
+  }
+
+  .hero-title{
+    order:2;
+    width:100%;
+    max-width:520px;
+    font-size:clamp(31px,8vw,42px);
+    line-height:1.08;
+    letter-spacing:-.9px;
+    text-align:center;
+  }
+
+  .hero-subtitle{
+    order:3;
+    max-width:510px;
+    margin:19px auto 0;
+    font-size:18px;
+    line-height:1.35;
+    text-align:center;
+  }
+
+  .hero-description{
+    order:4;
+    max-width:510px;
+    margin:13px auto 0;
+    font-size:13.5px;
+    line-height:1.6;
+    text-align:center;
+  }
+
+  .hero-visual{
+    order:5;
+    width:100%;
+    height:430px;
+    min-height:430px;
+    margin-top:8px;
+  }
+
+  .hero-circle{
+    width:360px;
+    height:360px;
+    min-width:360px;
+    min-height:360px;
+  }
+
+  .hero-circle-glow{
+    width:310px;
+    height:310px;
+  }
+
+  .hero-orbit{
+    width:415px;
+    height:415px;
+    min-width:415px;
+    min-height:415px;
+  }
+
+  .hero-orbit-dot{
+    width:15px;
+    height:15px;
+  }
+
+  .founder-wrap{
+    width:390px;
+    min-width:0;
+    max-width:92%;
+    bottom:0;
+  }
+
+  .founder-image{
+    width:100%;
+    max-height:440px;
+  }
+
+  .hero-details{
+    order:6;
+    width:100%;
+    max-width:520px;
+    margin:8px auto 0;
+    justify-content:center;
+    align-items:center;
+    gap:8px 14px;
+    text-align:center;
+  }
+
+  .hero-detail{
+    font-size:11px;
+  }
+
+  .hero-action{
+    order:7;
+    width:100%;
+    max-width:430px;
+    margin:18px auto 0;
+    text-align:center;
+  }
+
+  .hero-button{
+    width:100%;
+    min-height:57px;
+    padding:0 18px;
+    font-size:14px;
+  }
+
+  .hero-proof{
+    text-align:center;
+    font-size:10.5px;
+  }
+}
+
+/* ---------------------------
+   Small phones
+   --------------------------- */
+
+@media (max-width:480px){
+  .hero{
+    padding:28px 0 26px;
+  }
+
+  .hero-container{
+    width:92%;
+  }
+
+  .hero-eyebrow{
+    max-width:100%;
+    font-size:10px;
+  }
+
+  .hero-title{
+    max-width:430px;
+    font-size:31px;
+    line-height:1.08;
+  }
+
+  .hero-subtitle{
+    font-size:17px;
+  }
+
+  .hero-description{
+    font-size:12.75px;
+  }
+
+  .hero-visual{
+    height:380px;
+    min-height:380px;
+    margin-top:5px;
+  }
+
+  .hero-circle{
+    width:315px;
+    height:315px;
+    min-width:315px;
+    min-height:315px;
+  }
+
+  .hero-circle-glow{
+    width:270px;
+    height:270px;
+  }
+
+  .hero-orbit{
+    width:365px;
+    height:365px;
+    min-width:365px;
+    min-height:365px;
+  }
+
+  .founder-wrap{
+    width:350px;
+    max-width:96%;
+  }
+
+  .hero-details{
+    gap:7px 11px;
+    margin-top:7px;
+  }
+
+  .hero-detail{
+    font-size:10px;
+  }
+
+  .hero-action{
+    margin-top:16px;
+  }
+
+  .hero-button{
+    min-height:56px;
+    font-size:13.5px;
+  }
+
+  .hero-proof{
+    font-size:10px;
+  }
+}
+
+/* MIRROR */
+.mirror{padding:56px 0;background:var(--light-grey)}
+.mirror-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.m-card{background:var(--white);border:1px solid var(--soft-grey);border-radius:12px;padding:24px;position:relative;overflow:hidden;transition:all .3s ease}
+.m-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(127,0,255,.07);border-color:var(--light-purple)}
+.m-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--primary-purple);transform:scaleY(0);transform-origin:top;transition:transform .3s}
+.m-card:hover::before{transform:scaleY(1)}
+.m-card-ic{width:40px;height:40px;background:var(--purple-bg2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.m-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--dark-text);margin-bottom:8px;letter-spacing:-0.01em}
+.m-card p{font-family:'Inter',sans-serif;font-size:14px;color:var(--body-text);line-height:1.6}
+.m-card p em{color:var(--primary-purple);font-style:italic;font-weight:500}
+.mirror-foot{text-align:center;margin-top:28px}
+.mirror-foot p{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;color:var(--dark-text);margin-bottom:16px;letter-spacing:-0.01em}
+.mirror-foot p span{color:var(--primary-purple)}
+
+/* TESTIMONIALS */
+.testi{padding:56px 0;background:var(--white)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.testi-row2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:66.66%;margin:16px auto 0}
+.t-card{background:var(--light-grey);border-radius:12px;overflow:hidden;transition:all .3s ease}
+.t-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(127,0,255,.08)}
+.t-video{position:relative;padding-bottom:56.25%;height:0;background:#111}
+.t-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.t-info{padding:14px 18px}
+.t-stars{color:var(--yellow-accent);font-size:14px;margin-bottom:4px;letter-spacing:1px}
+.t-name{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:var(--dark-text)}
+.t-meta{font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);margin-top:2px;font-weight:500}
+.t-result{display:inline-block;margin-top:6px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--primary-purple);background:var(--purple-bg2);padding:3px 10px;border-radius:100px}
+
+/* TRUTH */
+.truth{padding:56px 0;background:var(--charcoal);position:relative;overflow:hidden}
+.truth::before{content:'';position:absolute;bottom:-80px;right:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(127,0,255,.1),transparent 70%);pointer-events:none}
+.truth .section-tag{background:rgba(255,214,0,.1);color:var(--yellow-accent)}
+.truth .section-title{color:var(--white)}
+.truth-lead{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--white);margin:12px 0 20px;line-height:1.35;max-width:680px;letter-spacing:-0.01em}
+.truth-lead span{color:var(--yellow-accent);font-style:italic}
+.truth-stack{max-width:680px;position:relative;z-index:1}
+.tl{font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;padding:8px 0;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.05);transition:padding-left .25s ease;font-weight:400}
+.tl:hover{padding-left:10px}
+.tl:last-child{border-bottom:none}
+.tl .y{color:var(--yellow-accent);font-weight:600}
+.tl em{color:var(--light-purple);font-style:italic;font-weight:500}
+.tl strong{color:var(--white);font-weight:600}
+.truth-box{margin-top:24px;padding:22px;background:rgba(127,0,255,.08);border:1px solid rgba(127,0,255,.18);border-radius:12px;display:flex;align-items:center;gap:14px}
+.truth-box-ic{width:44px;height:44px;min-width:44px;background:var(--primary-purple);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.truth-box-txt{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--white);line-height:1.4;letter-spacing:-0.01em}
+.truth-box-txt span{color:var(--yellow-accent);font-style:italic}
+.truth-foot{margin-top:24px}
+
+/* LEARN */
+.learn{padding:56px 0;background:var(--off-white)}
+.learn-list{display:flex;flex-direction:column;gap:12px;max-width:720px;margin-top:20px}
+.l-item{display:flex;gap:16px;padding:22px;background:var(--white);border-radius:12px;border:1px solid transparent;transition:all .3s ease}
+.l-item:hover{border-color:var(--primary-purple);transform:translateX(5px);box-shadow:0 4px 16px rgba(127,0,255,.05)}
+.l-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--primary-purple);opacity:.25;line-height:1;min-width:40px}
+.l-text h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--dark-text);margin-bottom:4px;letter-spacing:-0.01em}
+.l-text p{font-family:'Inter',sans-serif;font-size:14px;color:var(--body-text);line-height:1.6}
+.learn-close{margin-top:22px;font-family:'Playfair Display',serif;font-size:17px;color:var(--body-text);max-width:600px;line-height:1.5;font-weight:500;font-style:italic}
+.learn-foot{margin-top:22px}
+
+/* CTA BAND */
+.cta-band{padding:48px 0;text-align:center;background:linear-gradient(135deg,var(--primary-purple),var(--deep-purple))}
+.cta-band .section-title{color:var(--white);margin-bottom:6px}
+.cta-band p{color:rgba(255,255,255,.85);font-size:16px;margin-bottom:22px;font-family:'Inter',sans-serif;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* FILTER */
+.filter{padding:56px 0;background:var(--white)}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.f-col{background:var(--light-grey);border-radius:12px;padding:26px}
+.f-col h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;letter-spacing:-0.01em}
+.f-col.yes h3{color:#16a34a}
+.f-col.no h3{color:#dc2626}
+.f-list{list-style:none}
+.f-list li{padding:10px 0;border-bottom:1px solid var(--soft-grey);font-family:'Inter',sans-serif;font-size:14px;color:var(--body-text);display:flex;align-items:flex-start;gap:10px;line-height:1.55}
+.f-list li:last-child{border-bottom:none}
+.f-ic{font-size:15px;flex-shrink:0;margin-top:2px}
+.filter-foot{text-align:center;margin-top:22px}
+.filter-note{margin-top:16px;font-family:'Playfair Display',serif;font-size:15px;color:var(--muted);font-style:italic;text-align:center}
+
+/* FAQ */
+.faq{padding:56px 0;background:var(--off-white)}
+.faq-list{max-width:700px;display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.faq-item{border:1px solid var(--soft-grey);border-radius:10px;overflow:hidden;background:var(--white);transition:border-color .25s}
+.faq-item:hover{border-color:var(--primary-purple)}
+.faq-q{width:100%;background:none;border:none;padding:18px 22px;font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--dark-text);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;letter-spacing:-0.01em}
+.faq-q .ic{font-size:20px;color:var(--primary-purple);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-q .ic{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:260px}
+.faq-a-inner{padding:0 22px 18px;font-family:'Inter',sans-serif;font-size:14px;color:var(--body-text);line-height:1.65}
+
+/* FINAL */
+.final{padding:64px 0;text-align:center;position:relative;overflow:hidden;background:linear-gradient(150deg,var(--black),#140028,var(--charcoal))}
+.final::before{content:'';position:absolute;top:50%;left:50%;width:440px;height:440px;background:radial-gradient(circle,rgba(127,0,255,.1),transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.final-h{font-family:'Playfair Display',serif;font-size:clamp(22px,3.6vw,36px);font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.25;position:relative;z-index:1;max-width:800px;margin-left:auto;margin-right:auto;letter-spacing:-0.02em}
+.final-h span{color:var(--yellow-accent);font-style:italic}
+.final-sub{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.6);margin-bottom:26px;position:relative;z-index:1}
+
+/* STICKY FOOTER */
+.sticky{
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--white);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  display:none;
+  flex-direction:column;
+  gap:10px;
+  z-index:9999;
+  box-shadow:0 -6px 24px rgba(0,0,0,.12);
+}
+.sticky-info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.sticky-info-item{
+  display:flex;align-items:center;gap:8px;
+  background:var(--light-grey);
+  border-radius:10px;
+  padding:8px 12px;
+}
+.sticky-info-ic{
+  width:26px;height:26px;min-width:26px;
+  background:var(--purple-bg2);
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;
+}
+.sticky-info-txt{line-height:1.25}
+.sticky-info-label{
+  display:block;
+  font-family:'Inter',sans-serif;font-size:9px;font-weight:700;
+  color:var(--muted);text-transform:uppercase;letter-spacing:.4px;
+}
+.sticky-info-value{
+  display:block;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  color:var(--dark-text);
+}
+.sticky-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;
+  background:var(--yellow-accent);color:var(--black);
+  font-family:'Inter',sans-serif;font-size:16px;font-weight:700;
+  padding:16px 24px;border-radius:100px;border:none;
+  box-shadow:0 4px 20px rgba(255,214,0,.4);
+  animation:glow-y 2.5s infinite;
+}
+.sticky-btn .price-old{
+  text-decoration:line-through;
+  opacity:.55;font-weight:500;margin-right:2px;
+}
+.sticky-btn .arrow{transition:transform .25s}
+.sticky-btn:active .arrow{transform:translateX(4px)}
+/* RESPONSIVE */
+
+
+/* =========================================
+   MOBILE HERO
+   ========================================= */
+
+@media (max-width:800px){
+
+  .hero{
+    min-height:auto;
+
+    padding:36px 0 30px;
+
+    overflow:hidden;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE CONTAINER
+     ----------------------------------------- */
+
+  .hero-container{
+
+    width:min(94%,560px);
+
+    min-height:auto;
+
+    margin:0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:0;
+
+    text-align:center;
+  }
+
+
+  /*
+     IMPORTANT:
+     Make children of hero-content participate
+     directly in the mobile flex layout.
+  */
+
+  .hero-content{
+    display:contents;
+  }
+
+
+  /* -----------------------------------------
+     1 — EYEBROW
+     ----------------------------------------- */
+
+  .hero-eyebrow{
+
+    order:1;
+
+    align-self:center;
+
+    max-width:92%;
+
+    margin-bottom:20px;
+
+    padding:8px 13px;
+
+    text-align:center;
+
+    font-size:11px;
+
+    line-height:1.35;
+  }
+
+
+  /* -----------------------------------------
+     2 — HEADLINE
+     ----------------------------------------- */
+
+  .hero-title{
+
+    order:2;
+
+    width:100%;
+
+    max-width:500px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    font-size:clamp(31px,8vw,42px);
+
+    line-height:1.08;
+
+    letter-spacing:-1px;
+  }
+
+
+  /*
+     Undo desktop nowrap.
+  */
+
+  .hero-title .ln:not(.hero-highlight){
+    white-space:normal;
+  }
+
+  .hero-highlight{
+    white-space:normal;
+  }
+
+
+  /* -----------------------------------------
+     3 — SUBTITLE
+     ----------------------------------------- */
+
+  .hero-subtitle{
+
+    order:3;
+
+    max-width:500px;
+
+    margin:20px auto 0;
+
+    text-align:center;
+
+    font-size:18px;
+
+    line-height:1.35;
+  }
+
+
+  /* -----------------------------------------
+     4 — DESCRIPTION
+     ----------------------------------------- */
+
+  .hero-description{
+
+    order:4;
+
+    max-width:500px;
+
+    margin:14px auto 0;
+
+    text-align:center;
+
+    font-size:14px;
+
+    line-height:1.6;
+  }
+
+
+  /* -----------------------------------------
+     5 — IMAGE
+     ----------------------------------------- */
+
+  .hero-visual{
+
+    order:5;
+
+    width:100%;
+
+    min-height:430px;
+
+    margin-top:12px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+  }
+
+
+  .hero-circle{
+
+    width:360px;
+    height:360px;
+
+    min-width:360px;
+    min-height:360px;
+  }
+
+
+  .hero-circle-glow{
+
+    width:310px;
+    height:310px;
+  }
+
+
+  .hero-orbit{
+
+    width:410px;
+    height:410px;
+  }
+
+
+  .hero-orbit-dot{
+
+    width:15px;
+    height:15px;
+  }
+
+
+  .founder-wrap{
+
+    width:390px;
+
+    max-width:92%;
+
+    left:50%;
+    bottom:0;
+
+    transform:translateX(-50%);
+  }
+
+
+  .founder-image{
+
+    width:100%;
+
+    height:auto;
+
+    max-height:440px;
+
+    object-fit:contain;
+  }
+
+
+  /* -----------------------------------------
+     6 — DATE / EVENT DETAILS
+     ----------------------------------------- */
+
+  .hero-details{
+
+    order:6;
+
+    width:100%;
+
+    max-width:500px;
+
+    margin:10px auto 0;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:9px 15px;
+
+    text-align:center;
+  }
+
+
+  .hero-detail{
+
+    font-size:11px;
+
+    white-space:nowrap;
+  }
+
+
+  /* -----------------------------------------
+     7 — CTA
+     ----------------------------------------- */
+
+  .hero-action{
+
+    order:7;
+
+    width:100%;
+
+    max-width:430px;
+
+    margin:20px auto 0;
+
+    text-align:center;
+  }
+
+
+  .hero-button{
+
+    width:100%;
+
+    min-height:58px;
+
+    padding:0 18px;
+
+    font-size:14px;
+
+    justify-content:center;
+  }
+
+
+  .hero-proof{
+
+    margin-top:10px;
+
+    font-size:11px;
+
+    text-align:center;
+  }
+
+}
+
+
+
+@media (max-width:480px){
+
+  .hero{
+    padding-top:28px;
+  }
+
+
+  .hero-container{
+    width:92%;
+  }
+
+
+  .hero-title{
+    font-size:31px;
+
+    line-height:1.08;
+
+    letter-spacing:-.8px;
+  }
+
+
+  .hero-subtitle{
+    font-size:17px;
+  }
+
+
+  .hero-description{
+    font-size:13px;
+  }
+
+
+  .hero-visual{
+
+    min-height:390px;
+
+    margin-top:5px;
+  }
+
+
+  .hero-circle{
+
+    width:325px;
+    height:325px;
+
+    min-width:325px;
+    min-height:325px;
+  }
+
+
+  .hero-circle-glow{
+
+    width:280px;
+    height:280px;
+  }
+
+
+  .hero-orbit{
+
+    width:370px;
+    height:370px;
+  }
+
+
+  .founder-wrap{
+
+    width:350px;
+
+    max-width:96%;
+  }
+
+
+  .hero-details{
+    gap:8px 11px;
+
+    margin-top:8px;
+  }
+
+
+  .hero-detail{
+    font-size:10.5px;
+  }
+
+
+  .hero-action{
+    margin-top:18px;
+  }
+
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- =========================================
+     HERO SECTION
+     ========================================= -->
+
+<section class="hero" id="top">
+
+  <!-- Background decoration -->
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+
+  <div class="hero-dot hero-dot-1"></div>
+  <div class="hero-dot hero-dot-2"></div>
+  <div class="hero-dot hero-dot-3"></div>
+
+  <div class="hero-container">
+
+    <!-- =====================================
+         LEFT CONTENT
+         ===================================== -->
+
+    <div class="hero-content">
+
+      <div class="hero-eyebrow">
+        For tailoring boutique owners who read this and immediately felt something
+      </div>
+
+      <h1 class="hero-title">
+
+        <span>You're stuck.</span>
+
+        <span>Not because you're lazy.</span>
+
+        <span>Not because you're unlucky.</span>
+
+        <span>Not because your city is small.</span>
+
+        <span class="hero-highlight">
+          Your boutique was built to need you for everything.
+        </span>
+
+      </h1>
+
+      <div class="hero-subtitle">
+        In 3 hours, I'll show you how to un-build that.
+      </div>
+
+      <p class="hero-description">
+        The exact system tailoring boutique owners are using to hand over
+        measurements, fittings, and deliveries — and still have their name
+        on the door.
+      </p>
+
+
+      <!-- Event details -->
+
+      <div class="hero-details">
+
+        <div class="hero-detail">
+          <span class="detail-icon">📅</span>
+          <span>January 25, 2025</span>
+        </div>
+
+        <div class="hero-detail">
+          <span class="detail-icon">⏰</span>
+          <span>11:00 AM IST</span>
+        </div>
+
+        <div class="hero-detail">
+          <span class="detail-icon">💻</span>
+          <span>Live on Zoom</span>
+        </div>
+
+        <div class="hero-detail">
+          <span class="detail-icon">💰</span>
+          <span>Just ₹199</span>
+        </div>
+
+      </div>
+
+
+      <!-- CTA -->
+
+      <div class="hero-action">
+
+        <a href="#register" class="hero-button">
+          Yes, Free Me From This — ₹199
+          <span>→</span>
+        </a>
+
+        <div class="hero-proof">
+          <strong>243</strong>
+          tailoring boutique owners registered
+          <span>·</span>
+          Live seats filling fast
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         RIGHT VISUAL
+         ===================================== -->
+
+    <div class="hero-visual">
+
+      <!-- Main circular background -->
+
+      <div class="hero-circle"></div>
+
+      <!-- Inner glow -->
+
+      <div class="hero-circle-glow"></div>
+
+
+      <!-- Yellow orbit -->
+
+      <div class="hero-orbit"></div>
+
+      <div class="hero-orbit-dot"></div>
+
+
+      <!-- Purple floating dot -->
+
+      <div class="visual-dot visual-dot-1"></div>
+      <div class="visual-dot visual-dot-2"></div>
+      <div class="visual-dot visual-dot-3"></div>
+
+
+      <!-- Founder -->
+
+      <div class="founder-wrap">
+
+        <img
+          src="FOUNDER 2.png"
+          alt="Tailoring boutique owner"
+          class="founder-image"
+          width="1086"
+          height="1448"
+          loading="eager"
+          decoding="async"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SECTION 2: MIRROR -->
+<section class="mirror">
+  <div class="container">
+    <div class="section-tag rv">The Mirror</div>
+    <h2 class="section-title rv">Four owners walk into a boutique. Which one are you?</h2>
+
+    <div class="mirror-grid">
+      <div class="m-card rv-l">
+        <div class="m-card-ic"><svg width="20" height="20" fill="none" stroke="var(--primary-purple)" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></div>
+        <h3>The Human Measuring Tape</h3>
+        <p>"Madam is coming at 4. She only wants madam to measure." You've heard this line 200 times. Your entire calendar is measurement slots. Design work? Sourcing? Growth? <em>That's what 11 PM is for.</em></p>
+      </div>
+      <div class="m-card rv-r">
+        <div class="m-card-ic"><svg width="20" height="20" fill="none" stroke="var(--primary-purple)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div>
+        <h3>The Approval Machine</h3>
+        <p>"Madam, check once." Fall length — check once. Sleeve — check once. Kaanji — check once. You're not running a boutique. <em>You're a walking quality-control department wearing a saree.</em></p>
+      </div>
+      <div class="m-card rv-l">
+        <div class="m-card-ic"><svg width="20" height="20" fill="none" stroke="var(--primary-purple)" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>The One-Tailor Empire</h3>
+        <p>Your master tailor is your best-kept secret and your biggest fear. If he takes leave, orders stop. If he quits, the boutique shakes. <em>And he knows it. You know he knows it.</em></p>
+      </div>
+      <div class="m-card rv-r">
+        <div class="m-card-ic"><svg width="20" height="20" fill="none" stroke="var(--primary-purple)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div>
+        <h3>The Wedding Season Survivor</h3>
+        <p>October to February is not a season — it's a war. You promise. You over-promise. You deliver at midnight. <em>You cry in the car.</em> Then Ugadi comes, and you do it all again.</p>
+      </div>
+    </div>
+
+    <div class="mirror-foot rv">
+      <p>If one of these hit too close — <span>this session was built for exactly you.</span></p>
+      <a href="#register" class="cta-btn cta-btn--purple">Yes, This Is Me — Save My Seat <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+SECTION 3: TESTIMONIALS -->
+
+
+<!-- <section class="testi">
+  <div class="container">
+    <div class="section-tag rv">Real results</div>
+    <h2 class="section-title rv">Real tailoring boutique owners. Real changes.</h2>
+    <p class="section-sub rv">They were stuck in the same loop. Here's what shifted.</p>
+
+    <div class="testi-grid">
+      <div class="t-card rv">
+        <div class="t-video"><iframe src="https://youtu.be/S9A3DTjrt7U?si=qiNWwBhpO7XGqu3T" title="Testimonial 1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+        <div class="t-info"><div class="t-stars">★★★★★</div><div class="t-name">[Priya S.]</div><div class="t-meta">[Chennai] · [Bridal Blouse Specialist]</div><span class="t-result">Assistant does 80% of measurements now</span></div>
+      </div>
+      <div class="t-card rv">
+        <div class="t-video"><iframe src="https://youtu.be/r8HRUEfDUA8?si=Ei_tlTWCeWlIJ5wO" title="Testimonial 2" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+        <div class="t-info"><div class="t-stars">★★★★★</div><div class="t-name">[Rekha M.]</div><div class="t-meta">[Coimbatore] · [Bridal Boutique]</div><span class="t-result">₹1.2L → ₹2.8L in 3 months</span></div>
+      </div>
+      <div class="t-card rv">
+        <div class="t-video"><iframe src="https://youtu.be/zYGRvB1uXdg?si=uipJPUIzZ11Qo-4l" title="Testimonial 3" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+        <div class="t-info"><div class="t-stars">★★★★★</div><div class="t-name">[Deepa K.]</div><div class="t-meta">[Bangalore] · [Custom Tailoring]</div><span class="t-result">5-day vacation during peak season</span></div>
+      </div>
+    </div>
+    <div class="testi-row2">
+      <div class="t-card rv">
+        <div class="t-video"><iframe src="https://youtu.be/MzF8DlACBw8?si=LHSRivgcIAZBvpQm" title="Testimonial 4" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+        <div class="t-info"><div class="t-stars">★★★★★</div><div class="t-name">[Meena R.]</div><div class="t-meta">[Hyderabad] · [Churidar Specialist]</div><span class="t-result">Master tailor quit — zero missed deliveries</span></div>
+      </div>
+      <div class="t-card rv">
+        <div class="t-video"><iframe src="https://youtu.be/NU5hjh0spjM?si=fv86psdBVQRnJSqx" title="Testimonial 5" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+        <div class="t-info"><div class="t-stars">★★★★★</div><div class="t-name">[Anitha V.]</div><div class="t-meta">[Mumbai] · [Designer Boutique]</div><span class="t-result">Stopped working Sundays in 30 days</span></div>
+      </div>
+    </div>
+  </div>
+</section> 
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SECTION 4: TRUTH -->
+<section class="truth">
+  <div class="container">
+    <div class="section-tag rv">The Unsaid</div>
+    <h2 class="section-title rv">Before you read another growth tip, read this one sentence:</h2>
+
+    <p class="truth-lead rv">Your boutique isn't small because you're not talented. Your boutique is small because it fits inside <span>one person — and that person is you.</span></p>
+
+    <div class="truth-stack">
+      <div class="tl rv">Every measurement — <strong>you</strong> take it.</div>
+      <div class="tl rv">Every fitting — <strong>you</strong> approve it.</div>
+      <div class="tl rv">Every difficult customer — <strong>you</strong> handle it.</div>
+      <div class="tl rv">Every tailor mistake — <strong>you</strong> fix it.</div>
+      <div class="tl rv">Every delivery deadline — <strong>you</strong> personally push it.</div>
+      <div class="tl rv">So your boutique's ceiling isn't your marketing. It isn't your fabric. It isn't your city.</div>
+      <div class="tl rv"><span class="y">Your boutique's ceiling is the number of hours you can stay awake.</span></div>
+      <div class="tl rv">That's why more customers make you <em>more tired</em>, not more rich. That's why hiring more tailors just gives you more people to babysit.</div>
+    </div>
+
+    <div class="truth-box rv">
+      <div class="truth-box-ic"><svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="truth-box-txt">You don't need more of anything. You need <span>a system that runs without you standing over it.</span></div>
+    </div>
+
+    <div class="truth-foot rv">
+      <a href="#register" class="cta-btn cta-btn--yellow">Show Me The System — ₹199 <span class="arrow">→</span></a>
+      <p class="cta-note cta-note--light" style="margin-top:10px"><b>3 hours</b> that save you 3 years of staying stuck</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: LEARN -->
+<section class="learn">
+  <div class="container">
+    <div class="section-tag rv">The Session</div>
+    <h2 class="section-title rv">3 hours. No fluff. Here's what you'll know:</h2>
+
+    <div class="learn-list">
+      <div class="l-item rv">
+        <div class="l-num">01</div>
+        <div class="l-text">
+          <h3>The Real Reason You Can't Delegate Measurements</h3>
+          <p>It's not that your staff is bad. It's not that customers demand you. It's a specific trust-gap most owners can't name. Once you see it, you can fix it in under 30 days.</p>
+        </div>
+      </div>
+      <div class="l-item rv">
+        <div class="l-num">02</div>
+        <div class="l-text">
+          <h3>The 3 Silent Leaks Bleeding Your Margins</h3>
+          <p>Alterations. Last-minute overtime to compete. Completed orders forgotten in delivery. Every tailoring boutique loses 18–25% margin here — and doesn't even know it. You'll walk out with a way to plug all three.</p>
+        </div>
+      </div>
+      <div class="l-item rv">
+        <div class="l-num">03</div>
+        <div class="l-text">
+          <h3>The "Owner-Out" Framework</h3>
+          <p>The exact 4-step framework tailoring boutique owners are using to cross ₹3L, ₹5L, ₹10L per month — without becoming a bigger version of the tired owner they already are.</p>
+        </div>
+      </div>
+    </div>
+    <p class="learn-close rv">This isn't a webinar. This isn't a pep talk. This is a live surgery on how your boutique currently runs — and how to rebuild it so it runs without you.</p>
+    <div class="learn-foot rv">
+      <a href="#register" class="cta-btn cta-btn--purple">Get The Framework — ₹199 <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: MID CTA BAND -->
+<section class="cta-band" id="register">
+  <div class="container">
+    <h2 class="section-title rv">You've read this far because something inside is nodding.</h2>
+    <p class="rv">Don't close this tab and go back to the same 14-hour day.</p>
+    <a href="#register" class="cta-btn cta-btn--yellow rv">Yes, Save My Seat — ₹199 <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- SECTION 7: FILTER -->
+<section class="filter">
+  <div class="container">
+    <div class="section-tag rv">Before you register</div>
+    <h2 class="section-title rv">Read this honestly</h2>
+
+    <div class="f-grid">
+      <div class="f-col yes rv-l">
+        <h3>✓ This IS for you if</h3>
+        <ul class="f-list">
+          <li><span class="f-ic">✅</span>You're already doing ₹1 Lakh+ per month in tailoring orders</li>
+          <li><span class="f-ic">✅</span>You personally take most measurements or approve most fittings</li>
+          <li><span class="f-ic">✅</span>You've thought "I can't keep doing this" at least 3 times this month</li>
+          <li><span class="f-ic">✅</span>You want a real system, not another Instagram reel formula</li>
+        </ul>
+      </div>
+      <div class="f-col no rv-r">
+        <h3>✗ This is NOT for you if</h3>
+        <ul class="f-list">
+          <li><span class="f-ic">❌</span>You haven't opened your boutique yet</li>
+          <li><span class="f-ic">❌</span>You want a "1000 followers in 7 days" hack</li>
+          <li><span class="f-ic">❌</span>You want me to run your boutique for you</li>
+          <li><span class="f-ic">❌</span>You genuinely enjoy working till 11 PM every night forever</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="filter-note rv">I filter hard because I care about your result, not my registration count.</p>
+
+    <div class="filter-foot rv">
+      <a href="#register" class="cta-btn cta-btn--purple">I Qualify — Reserve My Seat <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-tag rv">The real objections</div>
+    <h2 class="section-title rv">Still thinking? Let's clear it up.</h2>
+
+    <div class="faq-list">
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">"3 hours? I don't even have 30 minutes." <span class="ic">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">That's the entire problem this session solves. You don't have time because your boutique eats it. Three hours now buys back three years. If you can't spare 3 hours, you especially need this.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">"I bought billing software last year. It's collecting dust." <span class="ic">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Because software can't fix a boutique where the owner is still the CPU. This session isn't about software — it's about the human layer underneath. Fix that first, and any tool sticks. Skip that, and no app on earth will save you.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">"My tailoring is different — I only do bridal blouses / churidars / men's suits." <span class="ic">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">The garment changes. The pattern doesn't. Owner takes measurement. Owner checks fitting. Owner chases tailor. Owner delivers. That's every tailoring boutique in India — bridal or blouse or suit. Same disease, same medicine.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">"Why only ₹199? What am I not being told?" <span class="ic">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Because I'd rather you show up and get value than sit on the fence over price. At the end of the session, I'll mention a deeper program for owners who want hands-on help. If it's for you — great. If not — you still walk out with a working framework. No trap.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: FINAL -->
+<section class="final">
+  <div class="container">
+    <h2 class="final-h rv">This time next year, one of two things is true. Either you're <span>still personally checking every fitting</span> — or you're not.</h2>
+    <p class="final-sub rv">3 hours. ₹199. The decision costs less than a fabric sample.</p>
+    <div class="rv">
+      <a href="#register" class="cta-btn cta-btn--yellow">I'm In — Reserve My Seat <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY FOOTER -->
+<div class="sticky" id="stickyBar">
+  <div class="sticky-info">
+    <div class="sticky-info-item">
+      <div class="sticky-info-ic">📅</div>
+      <div class="sticky-info-txt">
+        <span class="sticky-info-label">Date</span>
+        <span class="sticky-info-value">25 Jan 2025</span>
+      </div>
+    </div>
+    <div class="sticky-info-item">
+      <div class="sticky-info-ic">⏰</div>
+      <div class="sticky-info-txt">
+        <span class="sticky-info-label">Time</span>
+        <span class="sticky-info-value">11:00 AM IST</span>
+      </div>
+    </div>
+    <div class="sticky-info-item">
+      <div class="sticky-info-ic">⏳</div>
+      <div class="sticky-info-txt">
+        <span class="sticky-info-label">Duration</span>
+        <span class="sticky-info-value">3 Hours</span>
+      </div>
+    </div>
+    <div class="sticky-info-item">
+      <div class="sticky-info-ic">💻</div>
+      <div class="sticky-info-txt">
+        <span class="sticky-info-label">Where</span>
+        <span class="sticky-info-value">Zoom Online</span>
+      </div>
+    </div>
+  </div>
+  <a href="#register" class="sticky-btn">
+    Reserve My Seat  ₹199 <span class="arrow">→</span>
+  </a>
+</div>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')});},{threshold:.1,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.faq-q').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const i=b.closest('.faq-item'),o=i.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-q').setAttribute('aria-expanded','false')});
+    if(!o){i.classList.add('open');b.setAttribute('aria-expanded','true')}
+  });
+});
+
+const bar=document.getElementById('stickyBar');
+const hH=document.getElementById('top').offsetHeight;
+let ticking=false;
+window.addEventListener('scroll',()=>{
+  if(!ticking){window.requestAnimationFrame(()=>{
+    bar.style.display=(window.innerWidth<=900&&window.scrollY>hH)?'flex':'none';
+    ticking=false;
+  });ticking=true;}
+},{passive:true});
+</script>
+</body>
+</html>
