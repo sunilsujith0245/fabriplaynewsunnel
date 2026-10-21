@@ -1749,3 +1749,28 @@ ul,ol{list-style:none}
   .shots__group{flex-wrap:wrap;justify-content:center;padding-right:0}
   .shots__group[aria-hidden="true"]{display:none}
 }
+
+
+
+
+/* HERO — marker swipe highlight */
+.hero__title{position:relative;z-index:1}
+
+.hl-swipe{
+  position:relative;
+  padding:0 .2em;
+  color:#fff;
+}
+.hl-swipe::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-.04em;right:-.04em;top:.16em;bottom:.08em;
+  background:rgba(127,0,255,.72);
+  border-radius:5px 12px 6px 13px;
+  transform:rotate(-1.2deg) skewX(-6deg);
+}
+
+@media (max-width:600px){
+  .hl-swipe::before{top:.14em;bottom:.06em;border-radius:4px 9px 5px 10px}
+}
